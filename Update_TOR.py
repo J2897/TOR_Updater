@@ -20,10 +20,11 @@ url = 'https://www.torproject.org/projects/torbrowser.html.en'
 file_url = 'https://www.torproject.org/dist/torbrowser/'
 page = get_page(url)
 
+home = os.getenv('USERPROFILE')
 site_version = find_site_ver(page)
-tmp = 'C:\\Users\\J2897\\AppData\\Local\\Temp\\'
+tmp = os.getenv('TEMP') + '\\'
 DL = tmp + site_version
-PC = 'C:\\Users\\J2897\\Scripts\\Python\\TOR_Updater\\pickle.dat'
+PC = home + '\\pickle.dat'
 
 def clean(text):
 	import re
@@ -36,11 +37,11 @@ def DL_file(file_url, site_version, DL, tmp):
 	urllib.urlretrieve(file_url, DL)
 
 def get_sz(tmp, DL):
-	sz_exe = '"C:\\Program Files\\7-Zip\\7z.exe\"'
+	Q = '"'
+	sz_exe = Q + os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe' + Q
 	cmd = ' x'
 	out = ' -o'
-	Q = '"'
-	prog = '"C:\\Users\\J2897\\Programs\\"'
+	prog = Q + home + '\\Programs\\' + Q
 	tmp = Q + tmp + Q
 	DL = ' ' + Q + DL + Q
 	OW = ' -y > nul'
