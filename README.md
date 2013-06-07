@@ -28,15 +28,15 @@ How to use
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
-6.	If successful, After a couple of minutes you should see a prompt telling you that the installation was.
+6.	After a couple of minutes you should see a prompt telling you that the installation was successful;
 
-7. You should find that the TOR Browser Bundle has been installed in your Home holder:
+7.	if so, you should find that the TOR Browser Bundle has been installed in your Home holder:
 
 		C:\Users\<name>\Programs\Tor Browser
 
-8. You may want to right-click the `Start Tor Browser.exe` file and create a shortcut on your desktop.
+8. You may want to right-click the `Start Tor Browser.exe` file and create a short-cut on your desktop.
 
-	[1]: http://www.python.org/ftp/python/2.7/python-2.7.msi													"Python 2.7.*"
-	[2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe			"Python Extensions"
-	[3]: http://dl.7-zip.org/7z925.exe																			"7-Zip 9.25"
-	[4]: https://github.com/J2897/TOR_Updater/archive/master.zip												"TOR_Updater"
+   [1]: http://www.python.org/ftp/python/2.7/python-2.7.msi													"Python 2.7"
+   [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe			"Python Extensions"
+   [3]: http://dl.7-zip.org/7z925.exe																			"7-Zip 9.25"
+   [4]: https://github.com/J2897/TOR_Updater/archive/master.zip												"TOR_Updater"
