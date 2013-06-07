@@ -36,7 +36,7 @@ How to use
 
 8. You may want to right-click the `Start Tor Browser.exe` file and create a short-cut on your desktop.
 
-   [1]: http://www.python.org/ftp/python/2.7/python-2.7.msi													"Python 2.7"
-   [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe			"Python Extensions"
-   [3]: http://dl.7-zip.org/7z925.exe																			"7-Zip 9.25"
-   [4]: https://github.com/J2897/TOR_Updater/archive/master.zip												"TOR_Updater"
+   [1]: http://www.python.org/ftp/python/2.7/python-2.7.msi
+   [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
+   [3]: http://dl.7-zip.org/7z925.exe
+   [4]: https://github.com/J2897/TOR_Updater/archive/master.zip
