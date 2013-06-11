@@ -62,17 +62,8 @@ def DL_file(file_url, site_version, DL, tmp):
 	DL = tmp + site_version
 	urllib.urlretrieve(file_url, DL)
 
-def get_sz(tmp, DL):
-	Q = '"'
-	sz_exe = Q + os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe' + Q
-	cmd = ' x'
-	out = ' -o'
-	prog = Q + home + '\\Programs\\' + Q
-	tmp = Q + tmp + Q
-	DL = ' ' + Q + DL + Q
-	OW = ' -y > nul'
-	args = cmd + out + prog + DL + OW
-	return sz_exe, args
+def get_sz(tmp):
+	return [os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe', 'x', '-o' + home + '\\Programs\\',	tmp + site_version,	'^-y', '>', 'nul']
 
 def dump(PC, version):
 	import cPickle
@@ -84,10 +75,9 @@ def load():
 	with open(PC, 'rb') as pickle_file:
 		return cPickle.load(pickle_file)
 
-def sub_proc(sz_exe, args):
+def sub_proc(sz_command):
 	import subprocess
-	filepath = sz_exe + args
-	p = subprocess.Popen(filepath, shell=True, stdout = subprocess.PIPE)
+	p = subprocess.Popen(sz_command, shell=True, stdout = subprocess.PIPE)
 	stdout, stderr = p.communicate()
 	return p.returncode # is 0 if success
 
@@ -97,20 +87,21 @@ def download_install():
 	except:
 		msg_box('Could not download the file.', 0)
 		stop()
+
 	try:
-		sz_exe, args = get_sz(tmp, DL)
+		sz_command = get_sz(tmp)
 	except:
 		msg_box('Could not construct the 7-Zip command.', 0)
 		stop()
+
 	try:
-		RC = sub_proc(sz_exe, args)
+		RC = sub_proc(sz_command)
 		if RC == 0:
 			msg_box('Successfully updated to ' + site_version + '.', 0)
-		else:
-			msg_box('Successfully executed ' + site_version + '. But the installation may to have failed.', 0)
 	except:
 		msg_box('Failed to execute ' + site_version + '.', 0)
 		stop()
+
 	try:
 		dump(PC, site_version)
 	except:
