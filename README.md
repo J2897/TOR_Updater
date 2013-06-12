@@ -51,11 +51,11 @@ This will run the command every time you log in to Windows. If you only log into
 
 1.	First, browse Windows Explorer to your 'Startup' folder:
 
-	C:\Users\<name>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\
+		C:\Users\<name>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\
 
 2.	Browse another Windows Explorer window to your 'Python 2.7' folder:
 
-	C:\Python27\
+		C:\Python27\
 
 3.	Using your right-click button on your mouse, drag the `python.exe` file from the 'Python 2.7' folder into the 'Startup' folder.
 
@@ -63,11 +63,11 @@ This will run the command every time you log in to Windows. If you only log into
 
 5.	Right-click on the new `python.exe - Shortcut` file, select `Properties` and the Target should currently be this:
 
-	C:\Python27\python.exe
+		C:\Python27\python.exe
 	
 6.	Change that Target adding the path to the `Update_TOR.py` file separated by a single space:
 
-	C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
+		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
 7.	Now click 'OK'.
 
@@ -80,16 +80,16 @@ This will run the command depending on how you decide to configure your Windows 
 
 1.	Open the Windows Task Scheduler:
 
-	Control Panel > System and Security > Administrative Tools > Task Scheduler
+		Control Panel > System and Security > Administrative Tools > Task Scheduler
 
 2.	Under 'Actions' in the right-hand pane, click `Create Basic Task...` and configure as follows:
 
-	Name:				TOR Updater
-	*Configure the time as you prefer.*
-	Action:				Start a program.
-	Program/script:		C:\Python27\python.exe
-	Add arguments:		"C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
-	Start in:			C:\Python27
+		Name:				TOR Updater
+		*Configure the time as you prefer.*
+		Action:				Start a program.
+		Program/script:		C:\Python27\python.exe
+		Add arguments:		"C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
+		Start in:			C:\Python27
 
 3. Click 'Next', then 'Finished', and you're done!
 
