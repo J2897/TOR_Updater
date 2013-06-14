@@ -1,7 +1,11 @@
 TOR Updater - Beta
 ===================
 
-Upon first run, it will download and install the "TOR Browser Bundle". All subsequent runs will then check the TOR site for a newer version. If there's no newer version, it does nothing. If there is, it automatically downloads the new version and installs it.
+*Released under the GNU General Public License version 3 by J2897.*
+
+Upon first run, it will download and install the TOR Browser Bundle. All subsequent runs will check the TOR site for a newer version. If there's no newer version, it does nothing. If there is, it automatically downloads the new version and installs it. It doesn't yet verify the downloaded file's GPG signature; although I hope to implement this feature at some point in the near future.
+
+*This has now been successfully tested on both 32-Bit and 64-Bit versions of Windows 7.*
 
 Prerequisites
 -------------
@@ -16,15 +20,15 @@ You will need the following beforehand:
 How to use
 ----------
 
-1.	Download and install [Python 2.7] [1]. I highly recommend keeping the default settings.
+1.	Download and install [Python 2.7] [1]. *Keep the default settings!*
 
-2.	Download and install the [Python Extensions for Windows] [2]. I highly recommend keeping the default settings.
+2.	Download and install the [Python Extensions for Windows] [2]. *Keep the default settings!*
 
-3.	Download and install [7-Zip] [3].
+3.	Download and install [7-Zip] [3]. *Keep the default settings!*
 
 4.	Download the [TOR_Updater] [2] file and extract the `TOR_Updater-master` folder to somewhere convenient.
 
-5.	Now try launching the `Update_TOR.py` file from the command-line:
+5.	Now try launching the `Update_TOR.py` file from a Windows Command Prompt:
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
@@ -34,20 +38,24 @@ How to use
 
 		C:\Users\<name>\Programs\Tor Browser
 
-8. You may want to right-click the `Start Tor Browser.exe` file and create a short-cut on your desktop.
+8. You may want to right-click the `Start Tor Browser.exe` file and create a shortcut on your desktop.
 
 Automation
 ----------
 
-If you've successfully installed the TOR Browser Bundle using the command in step #5 above, then you are ready to set up automation - because you probably don't want to manually type out that command each and every time you want to check for - and download/install - the new version of the TOR Browser Bundle. There are two simple ways that you can make your PC execute that command automatically:
+If you've successfully installed the TOR Browser Bundle using the command in Step #5 above then you are ready to set up automation - because you probably don't want to have to manually type out that command every week or so.
 
-1.	Place a short-cut in your Startup folder. Or;
+There are two simple ways that you can make your PC execute that command automatically:
+
+1.	Place a shortcut in your Startup folder. Or;
 2.	Add the command to Windows Task Scheduler.
 
-Place a short-cut in your Startup folder
+Instructions for both methods are explained below...
+
+Place a shortcut in your Startup folder
 ----------------------------------------
 
-This will run the command every time you log in to Windows. If you only log into Windows every week or so, then this is probably your best option:
+This will run the command every time you log in to Windows. If you only log into Windows every week or so, then this is probably your best option.
 
 1.	First, browse Windows Explorer to your 'Startup' folder:
 
@@ -64,7 +72,7 @@ This will run the command every time you log in to Windows. If you only log into
 5.	Right-click on the new `python.exe - Shortcut` file, select `Properties` and the Target should currently be this:
 
 		C:\Python27\python.exe
-	
+
 6.	Change that Target adding the path to the `Update_TOR.py` file separated by a single space:
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
@@ -76,7 +84,9 @@ The next time you log in to Windows, your PC will automatically check for - and 
 Add the command to Windows Task Scheduler
 -----------------------------------------
 
-This will run the command depending on how you decide to configure your Windows Task Scheduler.
+This will run the command depending on how you decide to configure Windows Task Scheduler.
+
+*If you have placed a shortcut in your Startup folder then you do NOT need to add the command to Windows Task Scheduler!*
 
 1.	Open the Windows Task Scheduler:
 
