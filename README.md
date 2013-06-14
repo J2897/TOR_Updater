@@ -90,6 +90,8 @@ This will run the command depending on how you decide to configure Windows Task 
 
 *If you have placed a shortcut in your Startup folder then you do NOT need to add the command to Windows Task Scheduler!*
 
+*If you are adding the command to Windows Task Scheduler then delete the shortcut that you placed in your Startup folder!*
+
 1.	Open the Windows Task Scheduler:
 
 		Control Panel > System and Security > Administrative Tools > Task Scheduler
