@@ -36,7 +36,7 @@ How to use
 
 6.	After a couple of minutes you should see a prompt telling you that the installation was successful;
 
-7.	if so, you should find that the TOR Browser Bundle has been installed in your Home holder:
+7.	if so, you should find that the TOR Browser Bundle has been installed in your Home folder:
 
 		C:\Users\<name>\Programs\Tor Browser\
 
@@ -57,7 +57,7 @@ Instructions for both methods are explained below...
 Place a shortcut in your Startup folder
 ----------------------------------------
 
-This will run the command every time you log in to Windows. If you only log into Windows every week or so, then this is probably your best option.
+This will run the command every time you log in to Windows. If you only log in to Windows every week or so, then this is probably your best option.
 
 1.	First, browse Windows Explorer to your 'Startup' folder:
 
