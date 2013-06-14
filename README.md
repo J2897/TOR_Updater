@@ -28,7 +28,7 @@ How to use
 
 4.	Download the [master.zip] [4] file and extract the `TOR_Updater-master` folder to somewhere convenient:
 
-		C:\Users\<name>\Updaters\TOR_Updater-master
+		C:\Users\<name>\Updaters\TOR_Updater-master\
 
 5.	Now try launching the `Update_TOR.py` file from a Windows Command Prompt:
 
@@ -38,7 +38,7 @@ How to use
 
 7.	if so, you should find that the TOR Browser Bundle has been installed in your Home holder:
 
-		C:\Users\<name>\Programs\Tor Browser
+		C:\Users\<name>\Programs\Tor Browser\
 
 8. You may want to right-click the `Start Tor Browser.exe` file and create a shortcut on your desktop.
 
