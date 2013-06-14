@@ -26,7 +26,7 @@ How to use
 
 3.	Download and install [7-Zip] [3]. *Keep the default settings!*
 
-4.	Download the [TOR_Updater] [2] file and extract the `TOR_Updater-master` folder to somewhere convenient.
+4.	Download the [TOR_Updater master.zip] [4] file and extract the `TOR_Updater-master` folder to somewhere convenient.
 
 5.	Now try launching the `Update_TOR.py` file from a Windows Command Prompt:
 
