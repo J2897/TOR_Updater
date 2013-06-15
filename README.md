@@ -20,7 +20,7 @@ You will need the following beforehand:
 How to use
 ----------
 
-1.	Download and install [Python 2.7] [1]. *Keep the default settings!*
+1.	Download and install [Python 2.7.5] [1]. *Keep the default settings!*
 
 2.	Download and install the [Python Extensions for Windows] [2]. *Keep the default settings!*
 
