@@ -107,7 +107,7 @@ This will run the command depending on how you decide to configure Windows Task 
 
 3. Click 'Next', then 'Finished', and you're done!
 
-   [1]: http://www.python.org/ftp/python/2.7/python-2.7.msi
+   [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
    [3]: http://dl.7-zip.org/7z925.exe
    [4]: https://github.com/J2897/TOR_Updater/archive/master.zip
