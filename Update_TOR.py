@@ -144,10 +144,11 @@ local_version = load()
 clean_local_version = clean(local_version)
 clean_site_version = clean(site_version)
 
+print 'Local version:		' + clean_local_version
+print 'Site version:		' + clean_site_version
+
 if clean_local_version.find(clean_site_version) != -1:
 	# Yes:	Quit.
-	print 'Local version:		' + clean_local_version
-	print 'Site version:		' + clean_site_version
 	print 'Match!'
 	print 'Ending...'
 	delay(5)
