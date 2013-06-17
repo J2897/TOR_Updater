@@ -1,5 +1,5 @@
-TOR Updater - Beta
-===================
+TOR Updater
+===========
 
 *Released under the GNU General Public License version 3 by J2897.*
 
