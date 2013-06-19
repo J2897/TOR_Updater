@@ -1,25 +1,7 @@
 # Released under the GNU General Public License version 3 by J2897.
 
-def get_page(page):
-	import urllib2
-	source = urllib2.urlopen(page)
-	return source.read()
-
 title = 'TOR Updater'
-target = 'Tor Browser Bundle for Windows'
-url = 'https://www.torproject.org/projects/torbrowser.html.en'
-file_url = 'https://www.torproject.org/dist/torbrowser/'
-
 print 'Running:		' + title
-print 'Target:			' + target
-print 'URL:			' + url
-
-try:
-	page = get_page(url)
-except:
-	page = None
-else:
-	print 'Got page...'
 
 def msg_box(message, box_type):
 	import win32api
@@ -29,6 +11,32 @@ def msg_box(message, box_type):
 def stop():
 	import sys
 	sys.exit()
+
+# Check if 7-Zip is installed...
+import os
+sz_exe = os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe'
+if not os.path.isfile(sz_exe):
+	print 'File not found:		' + sz_exe
+	msg_box('You don\'t appear to have 7-Zip installed. So there\'s no point proceeding to check the website for a newer version because 7-Zip is required for decompression. Please install 7-Zip and then try again.', 0)
+	stop()
+
+target = 'Tor Browser Bundle for Windows'
+url = 'https://www.torproject.org/projects/torbrowser.html.en'
+file_url = 'https://www.torproject.org/dist/torbrowser/'
+print 'Target:			' + target
+print 'URL:			' + url
+
+def get_page(page):
+	import urllib2
+	source = urllib2.urlopen(page)
+	return source.read()
+
+try:
+	page = get_page(url)
+except:
+	page = None
+else:
+	print 'Got page...'
 
 if page == None:
 	msg_box('Could not download the page. You may not be connected to the internet.', 0)
@@ -47,31 +55,18 @@ try:
 except:
 	msg_box('Could not search the page.', 0)
 	stop()
-else:
-	print 'Found:			' + site_version
 
 if site_version == None:
 	msg_box('The search target has not been found on the page. The formatting, or the text on the page, may have been changed.', 0)
 	stop()
 
-import os
+print 'Found:			' + site_version
+
 home = os.getenv('USERPROFILE')
 tmp = os.getenv('TEMP') + '\\'
 DL = tmp + site_version
 PC = home + '\\TOR_Updater.dat'
-
-def clean(text):
-	import re
-	return re.sub('[^0-9]', '', text)
-
-def DL_file(file_url, site_version, DL, tmp):
-	import urllib
-	file_url = file_url + site_version
-	DL = tmp + site_version
-	urllib.urlretrieve(file_url, DL)
-
-def get_sz(tmp):
-	return [os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe', 'x', '-o' + home + '\\Programs\\',	tmp + site_version,	'^-y', '>', 'nul']
+sz_command = [sz_exe, 'x', '-o' + home + '\\Programs\\',	tmp + site_version,	'^-y', '>', 'nul']
 
 def dump(PC, version):
 	import cPickle
@@ -83,15 +78,16 @@ def load():
 	with open(PC, 'rb') as pickle_file:
 		return cPickle.load(pickle_file)
 
-def sub_proc(sz_command):
+def sub_proc():
 	import subprocess
 	p = subprocess.Popen(sz_command, shell=True, stdout = subprocess.PIPE)
 	stdout, stderr = p.communicate()
 	return p.returncode # is 0 if success
 
-def download_install():
+def download_install(first_time):
 	try:
-		DL_file(file_url, site_version, DL, tmp)
+		import urllib
+		urllib.urlretrieve(file_url + site_version, tmp + site_version)
 	except:
 		msg_box('Could not download the file.', 0)
 		stop()
@@ -99,25 +95,21 @@ def download_install():
 		print 'Downloaded:		' + site_version
 
 	try:
-		sz_command = get_sz(tmp)
-	except:
-		msg_box('Could not construct the 7-Zip command.', 0)
-		stop()
-
-	try:
-		RC = sub_proc(sz_command)
+		RC = sub_proc()
 		if RC == 0:
-			msg_box('Successfully updated to ' + site_version + '.', 0)
+			if first_time:
+				print 'Installation successful!'
+				msg_box('Successfully installed the TOR Browser Bundle for the first time. Look inside your \'Programs\' folder: ' + home + '\\Programs\\', 0)
+			else:
+				print 'Update successful!'
 	except:
-		msg_box('Failed to execute ' + site_version + '.', 0)
+		msg_box('Failed to execute" ' + site_version + '".', 0)
 		stop()
-	else:
-		print 'Update successful!'
 
 	try:
 		dump(PC, site_version)
 	except:
-		msg_box('Could not dump site_version.', 0)
+		msg_box('Could not dump the site version information to: ' + PC, 0)
 		stop()
 	else:
 		print 'Dumped cache:		' + PC
@@ -131,7 +123,8 @@ if not os.path.isfile(PC):
 	# No:	Download and install TOR, create a Pickle Cache file in the home folder, dump site_version and quit.
 	print 'Cache file doesn\'t exist.'
 	print 'Installing TOR for the first time...'
-	download_install()
+	first_time = True
+	download_install(first_time)
 	print 'Ending...'
 	delay(5)
 	stop()
@@ -139,6 +132,10 @@ if not os.path.isfile(PC):
 # Load contents of Pickle Cache file (local_version).
 print 'Loading cache...'
 local_version = load()
+
+def clean(text):
+	import re
+	return re.sub('[^0-9]', '', text)
 
 # Check if the local_version numbers are in the site_version numbers...
 clean_local_version = clean(local_version)
@@ -165,13 +162,14 @@ def find_proc(exe):
 
 while find_proc('vidalia.exe'):
 	print 'TOR is running. Close TOR now!'
-	user_input = msg_box('There is a new version of the TOR Browser Bundle available. Please close TOR and press OK to continue.', 1)
+	user_input = msg_box('There is a new version of the TOR Browser Bundle available. Please close TOR and press \'OK\' to continue.', 1)
 	if user_input == 1:
 		pass
 	elif user_input == 2:
 		stop()
 
 # Download and install TOR, dump site_version and quit.
-download_install()
+first_time = False
+download_install(first_time)
 print 'Ending...'
 delay(5)
