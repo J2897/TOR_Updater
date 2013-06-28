@@ -112,13 +112,13 @@ If you use Sandboxie you can create a shortcut to launch your TOR Browser in a s
 
 Set the 'Target' as:
 
-		"C:\Program Files\Sandboxie\Start.exe" /box:DefaultBox /silent /nosbiectrl "C:\Users\<name>\Programs\Tor Browser\Start Tor Browser.exe"
+	"C:\Program Files\Sandboxie\Start.exe" /box:DefaultBox /silent /nosbiectrl "C:\Users\<name>\Programs\Tor Browser\Start Tor Browser.exe"
 
 And set the 'Start in' as:
 
-		"C:\Users\<name>\Programs\Tor Browser"
+	"C:\Users\<name>\Programs\Tor Browser"
 
-Make sure the 'Start in' is correct the TOR Browser will not open!
+Make sure the 'Start in' is correct or else the TOR Browser will not open!
 
    [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
