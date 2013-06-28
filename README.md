@@ -34,9 +34,7 @@ How to use
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
-6.	After a couple of minutes you should see a prompt telling you that the installation was successful;
-
-7.	if so, you should find that the TOR Browser Bundle has been installed in your Home folder:
+6.	After a couple of minutes you should see a prompt telling you that the installation was successful and find that the TOR Browser Bundle has been installed in your Home folder:
 
 		C:\Users\<name>\Programs\Tor Browser\
 
@@ -106,6 +104,21 @@ This will run the command depending on how you decide to configure Windows Task 
 		Start in:			C:\Python27
 
 3. Click 'Next', then 'Finished', and you're done!
+
+Sandboxie
+---------
+
+If you use Sandboxie you can create a shortcut to launch your TOR Browser in a sandbox:
+
+Set the 'Target' as:
+
+		"C:\Program Files\Sandboxie\Start.exe" /box:DefaultBox /silent /nosbiectrl "C:\Users\<name>\Programs\Tor Browser\Start Tor Browser.exe"
+
+And set the 'Start in' as:
+
+		"C:\Users\<name>\Programs\Tor Browser"
+
+Make sure the 'Start in' is correct the TOR Browser will not open!
 
    [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
