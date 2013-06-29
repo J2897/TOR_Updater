@@ -69,11 +69,11 @@ This will run the command every time you log in to Windows. If you only log in t
 
 4.	A dialogue will appear; in it, select `Create shortcuts here`.
 
-5.	Right-click on the new `python.exe - Shortcut` file, select `Properties` and the Target should currently be this:
+5.	Right-click on the new `python.exe - Shortcut` file, select `Properties` and the 'Target' should currently be this:
 
 		C:\Python27\python.exe
 
-6.	Change that Target adding the path to the `Update_TOR.py` file separated by a single space:
+6.	Change that 'Target' adding the path to the `Update_TOR.py` file separated by a single space:
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
@@ -103,22 +103,38 @@ This will run the command depending on how you decide to configure Windows Task 
 		Add arguments:		"C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 		Start in:			C:\Python27
 
-3. Click 'Next', then 'Finished', and you're done!
+3.	Click 'Next', then 'Finished', and you're done!
 
-Sandboxie
+Sandboxie tip
 ---------
 
-If you use Sandboxie you can create a shortcut to launch your TOR Browser in a sandbox:
+*Ignore this if you don't have Sandboxie installed!*
 
-Set the 'Target' as:
+If you use Sandboxie you can create a shortcut to automatically launch your TOR Browser inside a sandbox - a good security decision considering that the person in control of the Exit Node could be someone with malicious intent.
 
-	"C:\Program Files\Sandboxie\Start.exe" /box:DefaultBox /silent /nosbiectrl "C:\Users\<name>\Programs\Tor Browser\Start Tor Browser.exe"
+Here's how...
 
-And set the 'Start in' as:
+1.	Right-click on your Desktop and create a new shortcut:
 
-	"C:\Users\<name>\Programs\Tor Browser"
+		New > Shortcut
 
-Make sure the 'Start in' is correct or else the TOR Browser will not open!
+2.	Select the Sandboxie executable:
+
+		"C:\Program Files\Sandboxie\Start.exe"
+
+3.	Name it what ever you like; 'Start Tor Browser' is fine.
+
+4.	Right-click on the shortcut and select `Properties`.
+
+5.	Set the 'Target' as:
+
+		"C:\Program Files\Sandboxie\Start.exe" /box:DefaultBox /silent /nosbiectrl "C:\Users\<name>\Programs\Tor Browser\Start Tor Browser.exe"
+
+6.	And set the 'Start in' as:
+
+		"C:\Users\<name>\Programs\Tor Browser"
+
+Make sure the 'Start in' is correct or else the TOR Browser will fail to open!
 
    [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
