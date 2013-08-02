@@ -20,7 +20,7 @@ if not os.path.isfile(sz_exe):
 	msg_box('You don\'t appear to have 7-Zip installed. So there\'s no point proceeding to check the website for a newer version because 7-Zip is required for decompression. Please install 7-Zip and then try again.', 0)
 	stop()
 
-target = 'Tor Browser Bundle for Windows'
+target = 'Microsoft Windows'
 url = 'https://www.torproject.org/projects/torbrowser.html.en'
 file_url = 'https://www.torproject.org/dist/torbrowser/'
 print 'Target:			' + target
