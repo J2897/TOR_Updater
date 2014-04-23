@@ -13,12 +13,12 @@ def stop():
 	sys.exit()
 
 # Check if 7-Zip is installed...
-import os
-sz_exe = os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe'
-if not os.path.isfile(sz_exe):
-	print 'File not found:		' + sz_exe
-	msg_box('You don\'t appear to have 7-Zip installed. So there\'s no point proceeding to check the website for a newer version because 7-Zip is required for decompression. Please install 7-Zip and then try again.', 0)
-	stop()
+# import os
+# sz_exe = os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe'
+# if not os.path.isfile(sz_exe):
+	# print 'File not found:		' + sz_exe
+	# msg_box('You don\'t appear to have 7-Zip installed. So there\'s no point proceeding to check the website for a newer version because 7-Zip is required for decompression. Please install 7-Zip and then try again.', 0)
+	# stop()
 
 target = 'Microsoft Windows'
 url = 'https://www.torproject.org/projects/torbrowser.html.en'
@@ -45,13 +45,19 @@ if page == None:
 def find_site_ver(page):
 	T1 = page.find(target)
 	if T1 == -1:
-		return None
-	T2 = page.find('tor-browser-', T1)
-	T3 = page.find('>', T2)
-	return page[T2:T3-1]	# tor-browser-2.3.25-6_en-US.exe
+		return None, None
+
+	site_ver_start = page.find('(', T1)
+	site_ver_end = page.find(')', site_ver_start)
+	site_ver = page[site_ver_start+1:site_ver_end]
+
+	T2 = page.find(site_ver+'/', site_ver_end)	
+	T3 = page.find('/', T2)
+	T4 = page.find('>', T3)
+	return page[T3+1:T4-1], site_ver	# tor-browser-2.3.25-6_en-US.exe, 3.2.1
 
 try:
-	site_version = find_site_ver(page)
+	site_version, site_num = find_site_ver(page)
 except:
 	msg_box('Could not search the page.', 0)
 	stop()
@@ -66,7 +72,7 @@ home = os.getenv('USERPROFILE')
 tmp = os.getenv('TEMP') + '\\'
 DL = tmp + site_version
 PC = home + '\\TOR_Updater.dat'
-sz_command = [sz_exe, 'x', '-o' + home + '\\Programs\\',	tmp + site_version,	'^-y', '>', 'nul']
+#sz_command = [sz_exe, 'x', '-o' + home + '\\Programs\\',	tmp + site_version,	'^-y', '>', 'nul']
 
 def dump(PC, version):
 	import cPickle
@@ -80,14 +86,14 @@ def load():
 
 def sub_proc():
 	import subprocess
-	p = subprocess.Popen(sz_command, shell=True, stdout = subprocess.PIPE)
+	p = subprocess.Popen(DL, shell=True, stdout = subprocess.PIPE)
 	stdout, stderr = p.communicate()
 	return p.returncode # is 0 if success
 
 def download_install(first_time):
 	try:
 		import urllib
-		urllib.urlretrieve(file_url + site_version, tmp + site_version)
+		urllib.urlretrieve(file_url + site_num + '/' + site_version, tmp + site_version)
 	except:
 		msg_box('Could not download the file.', 0)
 		stop()
@@ -99,7 +105,7 @@ def download_install(first_time):
 		if RC == 0:
 			if first_time:
 				print 'Installation successful!'
-				msg_box('Successfully installed the TOR Browser Bundle for the first time. Look inside your \'Programs\' folder: ' + home + '\\Programs\\', 0)
+				msg_box('Successfully installed the TOR Browser Bundle for the first time.', 0)
 			else:
 				print 'Update successful!'
 	except:
@@ -137,14 +143,14 @@ def clean(text):
 	import re
 	return re.sub('[^0-9]', '', text)
 
-# Check if the local_version numbers are in the site_version numbers...
+# Are the local_version numbers the same as the site_version numbers?
 clean_local_version = clean(local_version)
 clean_site_version = clean(site_version)
 
 print 'Local version:		' + clean_local_version
 print 'Site version:		' + clean_site_version
 
-if clean_local_version.find(clean_site_version) != -1:
+if clean_local_version == clean_site_version:
 	# Yes:	Quit.
 	print 'Match!'
 	print 'Ending...'
