@@ -13,7 +13,7 @@ def stop():
 	sys.exit()
 
 # Check if 7-Zip is installed...
-# import os
+import os
 # sz_exe = os.getenv('PROGRAMFILES') + '\\7-Zip\\7z.exe'
 # if not os.path.isfile(sz_exe):
 	# print 'File not found:		' + sz_exe
