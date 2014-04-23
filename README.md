@@ -14,8 +14,7 @@ You will need the following beforehand:
 
 * [Python] [1]
 * [Python Extensions] [2]
-* [7-Zip] [3]
-* [TOR_Updater] [4]
+* [TOR Updater] [3]
 
 How to use
 ----------
@@ -24,9 +23,7 @@ How to use
 
 2.	Download and install the [Python Extensions for Windows] [2]. *Keep the default settings!*
 
-3.	Download and install [7-Zip] [3]. *Keep the default settings!*
-
-4.	Download the [master.zip] [4] file and extract the `TOR_Updater-master` folder to somewhere convenient:
+3.	Download the [master.zip] [3] file and extract the `TOR_Updater-master` folder to somewhere convenient:
 
 		C:\Users\<name>\Updaters\TOR_Updater-master\
 
@@ -138,5 +135,4 @@ Make sure the 'Start in' is correct or else the TOR Browser will fail to open!
 
    [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
-   [3]: http://dl.7-zip.org/7z925.exe
-   [4]: https://github.com/J2897/TOR_Updater/archive/master.zip
+   [3]: https://github.com/J2897/TOR_Updater/archive/master.zip
