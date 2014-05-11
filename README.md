@@ -19,7 +19,7 @@ You will need the following beforehand:
 How to use
 ----------
 
-1.	Download and install [Python 2.7.5] [1]. *Keep the default settings!*
+1.	Download and install [Python 2.7.6] [1]. *Keep the default settings!*
 
 2.	Download and install the [Python Extensions for Windows] [2]. *Keep the default settings!*
 
@@ -27,20 +27,16 @@ How to use
 
 		C:\Users\<name>\Updaters\TOR_Updater-master\
 
-5.	Now try launching the `Update_TOR.py` file from a Windows Command Prompt:
+4.	Now launch the `Update_TOR.py` file from a Windows Command Prompt:
 
 		C:\Python27\python.exe "C:\Users\<name>\Updaters\TOR_Updater-master\Update_TOR.py"
 
-6.	After a couple of minutes you should see a prompt telling you that the installation was successful and find that the TOR Browser Bundle has been installed in your Home folder:
-
-		C:\Users\<name>\Programs\Tor Browser\
-
-8. You may want to right-click the `Start Tor Browser.exe` file and create a shortcut on your desktop.
+5.	After the installation, you may want to right-click the `Start Tor Browser.exe` file and create a shortcut on your desktop.
 
 Automation
 ----------
 
-If you've successfully installed the TOR Browser Bundle using the command in Step #5 above then you are ready to set up automation - because you probably don't want to have to manually type out that command every week or so.
+If you've successfully installed the TOR Browser Bundle using the command in Step #4 above then you are ready to set up automation - because you probably don't want to have to manually type out that command every week or so.
 
 There are two simple ways that you can make your PC execute that command automatically:
 
@@ -133,6 +129,6 @@ Here's how...
 
 Make sure the 'Start in' is correct or else the TOR Browser will fail to open!
 
-   [1]: http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
-   [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe
+   [1]: http://www.python.org/ftp/python/2.7.6/python-2.7.6.msi
+   [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download
    [3]: https://github.com/J2897/TOR_Updater/archive/master.zip
