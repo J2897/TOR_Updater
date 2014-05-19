@@ -99,7 +99,7 @@ This will run the command depending on how you decide to configure Windows Task 
 3.	Click 'Next', then 'Finished', and you're done!
 
 Sandboxie tip
----------
+-------------
 
 *Ignore this if you don't have Sandboxie installed!*
 
@@ -129,6 +129,12 @@ Here's how...
 
 Make sure the 'Start in' is correct or else the TOR Browser will fail to open!
 
+Issues
+------
+
+Please report any bugs [here] [4].
+
    [1]: http://www.python.org/ftp/python/2.7.6/python-2.7.6.msi
    [2]: http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download
    [3]: https://github.com/J2897/TOR_Updater/archive/master.zip
+   [4]: https://github.com/J2897/TOR_Updater/issues
